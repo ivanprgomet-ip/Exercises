@@ -25,14 +25,7 @@ namespace Exercise09
         }
         public string SSN
         {
-            get
-            {
-                //datetime is based on the time right now, 
-                //so the years will most likely allways be the same...
-                DateTime time= DateTime.Now;
-                string format = "yy/mm/dd";
-                return time.ToString(format) + " - " + this.ssn;
-            }
+            get{return ssn;}
             set { this.ssn = value; }
         }
         public string HourlyWage

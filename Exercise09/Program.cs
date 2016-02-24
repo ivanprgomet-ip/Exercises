@@ -14,14 +14,15 @@ namespace Exercise09
         static void Main(string[] args)
         {
 
-            Employee e1 = new Employee("ivan", "prgomet", "1", "00");
-            Employee e2 = new Employee("john", "cena", "2", "00");
-            Employee e3 = new Employee("bob", "bobson", "3", "00");
-            Employee e4 = new Employee("bill", "billson", "4", "00");
+            #region demo employees added to list
+            //demo employees
+            Employee e1 = new Employee("firstname1", "lastname1", "920320-4585", "250");
+            Employee e2 = new Employee("firstname2", "lastname2", "920412-4263", "450");
+            Employee e3 = new Employee("firstname3", "lastname3", "950805-2485", "550");
             reg.AddEmployee(e1);
             reg.AddEmployee(e2);
             reg.AddEmployee(e3);
-            reg.AddEmployee(e4);
+            #endregion
 
             while (active)
             {
@@ -54,18 +55,18 @@ namespace Exercise09
             Console.WriteLine("4. Show filtered search");
             Console.WriteLine("5. Exit");
             Console.WriteLine();
-            Console.WriteLine("Enter Choice: ");
+            Console.Write("Enter Choice: ");
         }
         private static void AddEmployee()
         {
             Console.Clear();
-            Console.WriteLine("Enter employee firstname: ");
+            Console.Write("Enter employee firstname: ");
             string firstname = Console.ReadLine();
-            Console.WriteLine("Enter employee lastname: ");
+            Console.Write("Enter employee lastname: ");
             string lastname = Console.ReadLine();
-            Console.WriteLine("Enter ssn: ");
+            Console.Write("Enter SSN (YYMMDD-XXXX): ");
             string ssn = Console.ReadLine();
-            Console.WriteLine("Enter hourly wage: ");
+            Console.Write("Enter hourly wage: ");
             string wage = Console.ReadLine();
             reg.AddEmployee(new Employee(firstname, lastname, ssn, wage));
             Console.ReadKey();
@@ -73,14 +74,16 @@ namespace Exercise09
         private static void RemoveEmployee()
         {
             Console.Clear();
-            Console.WriteLine("Enter ssn");
+            Console.Write("Enter ssn ");
             reg.RemoveEmployee(Console.ReadLine());
             Console.ReadKey();
         }
         private static void FilteredSearch()
         {
-            Console.WriteLine("Enter year with two digits: ");
+            Console.Clear();
+            Console.Write("Enter year with two digits: ");
             reg.FilterSearch(Console.ReadLine());
+            Console.ReadKey();
         }
         private static void PrintRegistry()
         {

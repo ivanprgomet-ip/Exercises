@@ -5,31 +5,27 @@ namespace Exercise09
 {
     class Registry
     {
-        List<Employee> lstEmployee = new List<Employee>();//this list stores all the employees
-        List<Employee> sameYearEmployees = new List<Employee>();//this list stores employees born in the same year
+        List<Employee> lstEmployee = new List<Employee>();
 
         public void FilterSearch(string year)
         {
-            //loops throug all employees and
-            //checks which year numbers their ssn starts with 
-            //and adds the matching employees to the list.
             for(int i=0;i<lstEmployee.Count;i++)
             {
                 if (lstEmployee[i].SSN.StartsWith(year))
-                    sameYearEmployees.Add(lstEmployee[i]);
+                    Console.WriteLine(lstEmployee[i].FullName+"| "+ lstEmployee[i].SSN);
             }
-
-            //prints employees born same year 
-            foreach(Employee e in sameYearEmployees)
-            {
-                Console.WriteLine("fullname: "+e.FullName+"| SSN: "+e.SSN);
-            }
-            Console.ReadKey();
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("logg updated");
+            Program.log.Log($"filtersearched for employees born in {year}\'");// <-- logging interesting stuff
+            Console.ResetColor();
         }
         public void AddEmployee(Employee newEmployee)
         {
             lstEmployee.Add(newEmployee);
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("logg updated");
             Program.log.Log("New employee added to the registry");// <-- logging interesting stuff
+            Console.ResetColor();
         }
         public void RemoveEmployee(string ssn)
         {
@@ -48,14 +44,16 @@ namespace Exercise09
                     break;
                 }
             }
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("logg updated");
             Program.log.Log(employeeFound ? "employee found and removed from registry" : "employee not found");// <-- logging interesting stuff
-            Console.ReadKey();
+            Console.ResetColor();
         }
         public void PrintRegistry()
         {
             foreach(Employee emp in lstEmployee)
             {
-                Console.WriteLine(emp.FullName);
+                Console.WriteLine(emp.FullName + "| "+emp.SSN);
             }
         }
     }
