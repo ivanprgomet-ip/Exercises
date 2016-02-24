@@ -27,7 +27,11 @@ namespace Exercise09
         {
             get
             {
-                return DateTime.Now.ToShortDateString()+"-"+ this.ssn;
+                //datetime is based on the time right now, 
+                //so the years will most likely allways be the same...
+                DateTime time= DateTime.Now;
+                string format = "yy/mm/dd";
+                return time.ToString(format) + " - " + this.ssn;
             }
             set { this.ssn = value; }
         }

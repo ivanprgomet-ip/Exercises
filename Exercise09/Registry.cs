@@ -5,19 +5,27 @@ namespace Exercise09
 {
     class Registry
     {
-        List<Employee> lstEmployee = new List<Employee>();
+        List<Employee> lstEmployee = new List<Employee>();//this list stores all the employees
+        List<Employee> sameYearEmployees = new List<Employee>();//this list stores employees born in the same year
 
-        //todo: fix this
-        //public List<string> FilterSearch(string year)
-        //{
-        //    List<string> matchingEmployees = new List<string>();
-        //    //add code which loops throug all employees and
-        //    //checks which year numbers their ssn starts with 
-        //    //and add the matching employees to the list.
+        public void FilterSearch(string year)
+        {
+            //loops throug all employees and
+            //checks which year numbers their ssn starts with 
+            //and adds the matching employees to the list.
+            for(int i=0;i<lstEmployee.Count;i++)
+            {
+                if (lstEmployee[i].SSN.StartsWith(year))
+                    sameYearEmployees.Add(lstEmployee[i]);
+            }
 
-
-        //    return matchingEmployees;
-        //}
+            //prints employees born same year 
+            foreach(Employee e in sameYearEmployees)
+            {
+                Console.WriteLine("fullname: "+e.FullName+"| SSN: "+e.SSN);
+            }
+            Console.ReadKey();
+        }
         public void AddEmployee(Employee newEmployee)
         {
             lstEmployee.Add(newEmployee);
