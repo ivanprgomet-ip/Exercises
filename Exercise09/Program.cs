@@ -23,8 +23,6 @@ namespace Exercise09
             reg.AddEmployee(e3);
             reg.AddEmployee(e4);
 
-
-
             while (active)
             {
                 Menu();
@@ -43,12 +41,6 @@ namespace Exercise09
                 else
                     Console.WriteLine("invalid input");
             }
-        }
-
-        private static void FilteredSearch()
-        {
-            Console.WriteLine("Enter year with two digits: ");
-            reg.FilterSearch(Console.ReadLine());
         }
 
         //these are private because I dont want other classes to reach these methods
@@ -84,6 +76,11 @@ namespace Exercise09
             Console.WriteLine("Enter ssn");
             reg.RemoveEmployee(Console.ReadLine());
             Console.ReadKey();
+        }
+        private static void FilteredSearch()
+        {
+            Console.WriteLine("Enter year with two digits: ");
+            reg.FilterSearch(Console.ReadLine());
         }
         private static void PrintRegistry()
         {
